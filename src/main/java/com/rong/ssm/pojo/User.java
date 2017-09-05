@@ -7,8 +7,8 @@ import java.util.Date;
  */
 public class User {
     private int id;
-    private String username;
-    private String password;
+    private String userName;
+    private String userPass;
     private Date create_time;
     private Date update_time;
 
@@ -20,20 +20,20 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPass() {
+        return userPass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
     }
 
     public Date getCreate_time() {

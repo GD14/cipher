@@ -12,16 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//       Object user= request.getSession().getAttribute("userinfo");
-//       String url=request.getRequestURI();
-//
-//       if(url.indexOf("login")>=0) {
-//           return true;
-//       }
-//            if(user==null){
-//            response.sendRedirect("/login");
-//            return false;
-//        }
+
         return true;
     }
 

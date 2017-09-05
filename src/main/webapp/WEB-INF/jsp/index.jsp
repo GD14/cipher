@@ -14,9 +14,9 @@
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/login" method="post">
-    用户名:<input type="text" name="username"/>
-    密码:  <input type="password" name="password"/>
+<form action="${pageContext.request.contextPath}/user/signIn" method="post">
+    用户名:<input type="text" name="userName"/>
+    密码:  <input type="userPass" name="userPass"/>
 <input type="submit" value="登录">
 </form>
 </body>
