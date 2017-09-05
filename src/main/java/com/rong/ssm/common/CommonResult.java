@@ -5,12 +5,12 @@ package com.rong.ssm.common;
  *
  */
 public class CommonResult<T> {
-    public final static boolean SUCCESS = true;
-    public final static boolean FAIL = false;
+    public final static String SUCCESS = "0";
+    public final static String ERROR_PASSWD = "1";
     /**
      * 操作是否成功
      */
-    private boolean isSuccess;
+    private String errno;
     /**
      * 操作结果信息，主要用来存储操作失败时对异常信息做出的提示信息
      */
@@ -20,26 +20,26 @@ public class CommonResult<T> {
      */
     private T data;
 
-    public CommonResult(boolean isSuccess) {
-        this.isSuccess = isSuccess;
+    public CommonResult(String errno) {
+        this.errno = errno;
     }
 
-    public CommonResult(boolean isSuccess, T data) {
-        this.isSuccess = isSuccess;
+    public CommonResult(String errno, T data) {
+        this.errno = errno;
         this.data = data;
     }
 
-    public CommonResult(boolean isSuccess, String errorMsg) {
-        this.isSuccess = isSuccess;
+    public CommonResult(String errno, String errorMsg) {
+        this.errno = errno;
         this.errorMsg = errorMsg;
     }
 
-    public boolean isSuccess() {
-        return isSuccess;
+    public String getErrno() {
+        return errno;
     }
 
-    public void setSuccess(boolean isSuccess) {
-        this.isSuccess = isSuccess;
+    public void setErrno(String errno) {
+        this.errno = errno;
     }
 
     public String getErrorMsg() {

@@ -2,8 +2,11 @@ package com.rong.ssm.controller;
 
 import com.rong.ssm.common.CommonResult;
 import com.rong.ssm.common.CommonValue;
+import com.rong.ssm.dto.CustSignInResult;
 import com.rong.ssm.dto.UserSignInResult;
+import com.rong.ssm.service.CustomerService;
 import com.rong.ssm.service.UserService;
+import com.rong.ssm.vo.SignInForm;
 import com.rong.ssm.vo.UserSignInForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,26 +19,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
+/**
+ * Created by GD14 on 2017/9/5.
+ */
 @Controller
-@RequestMapping(value = "/user")
-public class UserController {
+@RequestMapping(value = "/api/customer")
+public class CustomerController {
     @Autowired
-    private UserService userService;
+    private CustomerService customerService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @ResponseBody
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
-    public CommonResult<UserSignInResult> signIn(UserSignInForm userSignInForm, HttpServletRequest request) {
+    public CommonResult<CustSignInResult> signIn(SignInForm signInForm, HttpServletRequest request) {
 //        logger.info("userSignInForm={}", userSignInForm);
         try {
-            UserSignInResult userSignInResult = userService.signIn(userSignInForm);
+            CustSignInResult custSignInResult = customerService.signIn(signInForm);
             //判断登录成功则将用户名保存在session中
-            if (userSignInResult.isSuccess()) {
+            if (custSignInResult.isSuccess()) {
                 HttpSession userNameSession = request.getSession(true);
-                userNameSession.setAttribute("userNameSession", userSignInResult.getUserName());
+                userNameSession.setAttribute("userNameSession", custSignInResult.getCust_name());
                 userNameSession.setMaxInactiveInterval(CommonValue.USER_SESSION_TIMEOUT_MINUTE);
             }
-            return new CommonResult<>("0", userSignInResult);
+            return new CommonResult<>("0", custSignInResult);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             return new CommonResult<>("0", e.getMessage());
