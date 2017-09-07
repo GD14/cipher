@@ -53,4 +53,10 @@
         <property name="fileEncodings" value="utf-8"/>
         <property name="cacheSeconds" value="120"/>
     </bean>
+    <!--  取消对js，css，jpg的拦截-->
+    <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/imgs/**" location="/imgs/"/>
+    <!--<mvc:default-serlet-handler/>-->
+
 </beans>

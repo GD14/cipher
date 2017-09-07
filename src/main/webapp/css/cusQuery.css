@@ -1,0 +1,54 @@
+.main-nav{
+    height: 100%;
+    background-color: #635959;
+}
+.main-nav .user-name{
+    margin-top: 90px;
+    color: #ffffff;
+}
+.nav-ul{
+    margin-top: 100px;
+}
+.nav-ul ul li{
+    height: 55px;
+    line-height: 55px;
+    color: #c6c7c3;
+    font-weight: bold;
+    font-size: large;
+    letter-spacing: 5px;
+}
+.nav-ul ul li.nav-visiting{
+    background-color: #403e40;
+    color:#eb7a28;
+}
+.query-title{
+    margin-top:80px;
+}
+.query-title p{
+    font-weight: unset;
+    letter-spacing: 2px;
+    font-size: large;
+    color: #6b645f;
+    margin-left: 8px;
+}
+.query-title hr{
+    height: 1px;
+    border: none;
+    border-top: 1px solid #eb7a23;
+    margin-top: 0px;
+}
+.main-query .query-category{
+    height: 68px;
+    width: 160px;
+    text-align: center;
+    line-height: 68px;
+    border-radius: 10px;
+    border: 1.1px solid #eb7a28;
+    font-size: 16px;
+    color: #101010;
+    float: left;
+    margin: 20px 50px;
+}
+.cusInfo,.cusPro{
+    margin:50px auto
+}
