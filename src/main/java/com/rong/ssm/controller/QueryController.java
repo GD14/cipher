@@ -31,4 +31,8 @@ public class QueryController {
     public String cusQueryCalls(HttpServletRequest request) {
         return "cusQueryCalls";
     }
+    @RequestMapping(value = "/cusQueryMes")
+    public String cusQueryMes(HttpServletRequest request) {
+        return "cusQueryMes";
+    }
 }

@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap-datetimepicker.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 </head>
+<style>
 
+
+</style>
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
@@ -32,24 +35,24 @@
             <hr/>
         </div>
 
-        <div class="cusCalls">
-            <div class="inputCallsSearch">
+        <div class="cusMes">
+            <div class="inputMesSearch">
                 <div>自定义时间</div>
 
-                <span>自</span><input size="16" type="text" value="" readonly class="callsPreTime">
-                <span>至</span><input size="16" type="text" value="" readonly class="callslasTime">
+                <span>自</span><input size="16" type="text" value="" readonly class="MesPreTime">
+                <span>至</span><input size="16" type="text" value="" readonly class="MesLasTime">
 
-                <button class="btn btnCallsSearch">搜索</button>
+                <button class="btn btnMesSearch">搜索</button>
 
             </div>
-            <table id="cusCallsInfo" class="table table-hover"  >
+            <table id="cusMesInfo" class="table table-hover"  >
                 <tr>
-                    <th>序号</th><th>主叫用户</th><th>被叫用户</th>
+                    <th>序号</th><th>发送用户</th><th>接收用户</th>
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.callName}}</td>
-                    <td>{{object.calledName}}</td>
+                    <td>{{object.sendName}}</td>
+                    <td>{{object.receiveName}}</td>
                 </tr>
             </table>
         </div>
@@ -58,19 +61,18 @@
 </div>
 </body>
 <script>
-    var cusCallsD=[
-        {index:"1", callName:"卢桃", calledName:"雯馨"},
-        {index:"2", callName:"卢桃", calledName:"雯馨"},
-        {index:"3", callName:"卢桃", calledName:"雯馨"}
+    var cusMesD=[
+        {index:"1", sendName:"卢桃", receiveName:"雯馨"},
+        {index:"2", sendName:"卢桃", receiveName:"雯馨"},
+        {index:"3", sendName:"卢桃", receiveName:"雯馨"}
     ];
     new Vue({
-       el: '#cusCallsInfo',
-       data: {
-           object:cusCallsD
-       }
-   })
-    $(".callsPreTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-    $(".callsLasTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-
+        el: '#cusMesInfo',
+        data: {
+            object:cusMesD
+        }
+    })
+    $(".MesPreTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    $(".MesLasTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 </script>
 </html>
