@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间 是必须的 -->
+<mapper namespace="com.rong.ssm.mapper.ManagerMapper">
+    <select id="selectByPhone" parameterType="com.rong.ssm.vo.SignInForm" resultType="com.rong.ssm.pojo.Manager">
+        select * from `manager` where manager_nbr=#{phone}
+    </select>
+</mapper>
