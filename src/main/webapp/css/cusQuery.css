@@ -52,3 +52,53 @@
 .cusInfo,.cusPro{
     margin:50px auto
 }
+.inputMesSearch,.inputCallsSearch{
+    line-height:40px;
+    margin: 40px 0px 40px 30px;
+}
+.inputMesSearch div,.inputCallsSearch div{
+    display: inline;
+    height: 40px;
+    width: 160px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    border: 1.1px solid #eb7a28;
+    font-size: 16px;
+    color: #101010;
+    float: left;
+    margin-right:20px;
+}
+.inputMesSearch span,.inputCallsSearch span{
+    margin:0px 10px 0px 10px;
+}
+.inputMesSearch input,.inputCallsSearch input{
+    text-align: center;
+    height: 40px;
+    width: 160px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    border: 1.1px solid #eb7a28;
+    font-size: 16px;
+    color: #101010;
+
+}
+.inputMesSearch .btnMesSearch,.inputCallsSearch .btnCallsSearch{
+    text-align: center;
+    height: 40px;
+    width: 70px;
+    border-radius: 10px;
+    border: 1.1px solid #eb7a28;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: chocolate;
+    margin-left: 30px;
+}
+.table{
+    width:80% !important;
+    margin:30px auto !important;
+}
+.table th, .table td {
+    text-align: center !important;
+}
