@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface MessageMapper {
     public List<Message> selectByCallingId(int id);
+    public List<Message> selectByCallingPhone(String phone);
 }

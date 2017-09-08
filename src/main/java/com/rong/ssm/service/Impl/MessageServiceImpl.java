@@ -20,4 +20,10 @@ public class MessageServiceImpl implements MessageService{
      List<Message> messageList=messageMapper.selectByCallingId(uid);
      return messageList;
     }
+
+    @Override
+    public List<Message> listMessageByPhone(String phone) {
+        List<Message> messageList=messageMapper.selectByCallingPhone(phone);
+        return messageList;
+    }
 }

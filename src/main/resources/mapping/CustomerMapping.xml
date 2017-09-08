@@ -5,6 +5,6 @@
 <!-- 命名空间 是必须的 -->
 <mapper namespace="com.rong.ssm.mapper.CustomerMapper">
     <select id="selectByPhone"  resultType="com.rong.ssm.pojo.Customer">
-        select * from customer where cust_nbr=#{custNbr}
+        select * from `customer` where cust_nbr=#{custNbr}
     </select>
 </mapper>

@@ -5,6 +5,7 @@ import com.rong.ssm.dto.CustSignInResult;
 import com.rong.ssm.pojo.Message;
 import com.rong.ssm.service.CustomerService;
 import com.rong.ssm.service.MessageService;
+import com.rong.ssm.vo.QueryMessageVo;
 import com.rong.ssm.vo.SignInForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,8 @@ public class MessageController {
     private MessageService messageService;
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public CommonResult<List<Message>> List(Integer uid, HttpServletRequest request){
-        List<Message> messageList=messageService.listMessageByUid(uid);
+    public CommonResult<List<Message>> List(QueryMessageVo queryMessageVo, HttpServletRequest request){
+        List<Message> messageList=messageService.listMessageByPhone(queryMessageVo.getCallingPhone());
         return new CommonResult<>("0",messageList);
     }
 

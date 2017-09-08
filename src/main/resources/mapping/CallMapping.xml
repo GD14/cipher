@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 命名空间 是必须的 -->
 <mapper namespace="com.rong.ssm.mapper.CallMapper">
-    <select id="findByUid" parameterType="int" resultType="com.rong.ssm.pojo.Call">
-        select * from message where uid=#{id}
+    <select id="selectByCallingPhone" parameterType="String" resultType="com.rong.ssm.pojo.Call">
+        select * from `call` where calling=#{id}
     </select>
 </mapper>

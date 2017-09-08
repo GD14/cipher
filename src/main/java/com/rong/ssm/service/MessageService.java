@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface MessageService {
     public List<Message> listMessageByUid(Integer uid);
+    public List<Message> listMessageByPhone(String phone);
 }

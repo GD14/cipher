@@ -5,7 +5,9 @@
 <!-- 命名空间 是必须的 -->
 <mapper namespace="com.rong.ssm.mapper.MessageMapper">
     <select id="selectByCallingId" parameterType="int" resultType="com.rong.ssm.pojo.Message">
-        select * from message where calling_id=#{id}
+        select * from `message` where calling_id=#{id}
     </select>
-
+    <select id="selectByCallingPhone" parameterType="String" resultType="com.rong.ssm.pojo.Message">
+        select * from `message` where calling=#{id}
+    </select>
 </mapper>
