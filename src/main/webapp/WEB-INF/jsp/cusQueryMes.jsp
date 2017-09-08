@@ -61,6 +61,39 @@
 </div>
 </body>
 <script>
+    $(".btnCallsSearch").click(function(){
+        var callingPhone=15527185211;
+        var start_time=$(".MesPreTime").val();
+        var end_time=$(".MesLasTime").val();
+        var url="<%=path%>/api/message/list";
+        var data={
+            callingPhone:callingPhone,
+            start_time:start_time,
+            end_time:end_time
+        };
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: function(result){
+                var resultD=result;
+                $(".callsT").css("visibility","visible");
+                setCallTable(resultD.data);
+            },
+        });
+    });
+
+    function setCallTable(callsD){
+        var cusCallsD=callsD;
+        new Vue({
+            el: '#cusCallsInfo',
+            data: {
+                object:cusCallsD
+            }
+        })
+    }
+
+
     var cusMesD=[
         {index:"1", sendName:"卢桃", receiveName:"雯馨"},
         {index:"2", sendName:"卢桃", receiveName:"雯馨"},

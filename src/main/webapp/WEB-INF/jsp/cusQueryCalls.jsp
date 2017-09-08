@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap-datetimepicker.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 </head>
-
+<style>
+    .callsT{
+        visibility: hidden;
+    }
+</style>
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
@@ -36,20 +40,22 @@
             <div class="inputCallsSearch">
                 <div>自定义时间</div>
 
-                <span>自</span><input size="16" type="text" value="" readonly class="callsPreTime">
-                <span>至</span><input size="16" type="text" value="" readonly class="callslasTime">
+                <span>自</span><input size="16" type="text" value="请输入时间" readonly class="callsPreTime">
+                <span>至</span><input size="16" type="text" value="请输入时间" readonly class="callsLasTime">
 
                 <button class="btn btnCallsSearch">搜索</button>
 
             </div>
-            <table id="cusCallsInfo" class="table table-hover"  >
+            <table id="cusCallsInfo" class="callsT table table-hover"  >
                 <tr>
-                    <th>序号</th><th>主叫用户</th><th>被叫用户</th>
+                    <th>序号</th><th>主叫用户</th><th>被叫用户</th><th>开始时间</th><th>结束时间</th>
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.callName}}</td>
-                    <td>{{object.calledName}}</td>
+                    <td>{{object.calling}}</td>
+                    <td>{{object.called}}</td>
+                    <td>{{object.startTime}}</td>
+                    <td>{{object.endTime}}</td>
                 </tr>
             </table>
         </div>
@@ -58,17 +64,38 @@
 </div>
 </body>
 <script>
-    var cusCallsD=[
-        {index:"1", callName:"卢桃", calledName:"雯馨"},
-        {index:"2", callName:"卢桃", calledName:"雯馨"},
-        {index:"3", callName:"卢桃", calledName:"雯馨"}
-    ];
-    new Vue({
-       el: '#cusCallsInfo',
-       data: {
-           object:cusCallsD
-       }
-   })
+    $(".btnCallsSearch").click(function(){
+        var callingPhone=15527185211;
+        var start_time=$(".callsPreTime").val();
+        var end_time=$(".callsLasTime").val();
+        var url="<%=path%>/api/call/list";
+        var data={
+            callingPhone:callingPhone,
+            startTime:start_time,
+            endTime:end_time
+        };
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: function(result){
+                var resultD=result;
+                $(".callsT").css("visibility","visible");
+                setCallTable(resultD.data);
+            },
+        });
+    });
+
+    function setCallTable(callsD){
+        var cusCallsD=callsD;
+        new Vue({
+            el: '#cusCallsInfo',
+            data: {
+                object:cusCallsD
+            }
+        })
+    }
+
     $(".callsPreTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
     $(".callsLasTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 

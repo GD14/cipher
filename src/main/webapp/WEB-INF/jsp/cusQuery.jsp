@@ -39,10 +39,10 @@
             <p>查询</p>
             <hr/>
         </div>
-        <div class="query-category">个人信息</div>
-        <div class="query-category">我的套餐</div>
-        <div class="query-category">通话详单</div>
-        <div class="query-category">短信详单</div>
+        <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryInfo;'">个人信息</div>
+        <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryPro;'">我的套餐</div>
+        <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryCalls;'">通话详单</div>
+        <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryMes;'">短信详单</div>
     </div>
 </div>
 </body>

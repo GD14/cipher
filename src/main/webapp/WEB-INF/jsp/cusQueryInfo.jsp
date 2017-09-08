@@ -14,7 +14,7 @@
     <title>Title</title>
     <script  type="text/javascript" src="<%=path%>/js/static/jquery-3.2.1.min.js"></script>
     <script  type="text/javascript" src="<%=path%>/js/static/vue.js"></script>
-    <script  type="text/javascript" src="<%=path%>/js/queryCusInfo.js"></script>
+    <script  type="text/javascript" src="<%=path%>/js/queryCus.js"></script>
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 </head>
@@ -47,6 +47,8 @@
 </div>
 </body>
 <script>
+
+
     var cusInfoD={
      姓名:"卢桃",
      性别:"女",
