@@ -4,7 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 命名空间 是必须的 -->
 <mapper namespace="com.rong.ssm.mapper.CallMapper">
-    <select id="selectByCallingPhone" parameterType="String" resultType="com.rong.ssm.pojo.Call">
-        select * from `call` where calling=#{id}
+    <select id="selectByCallingPhone" parameterType="com.rong.ssm.vo.QueryCallVo"  resultType="com.rong.ssm.pojo.Call">
+        select * from `call`
+        where calling='${callingPhone}' and (start_time BETWEEN #{startTime,jdbcType=TIMESTAMP} and #{endTime,jdbcType=TIMESTAMP})
     </select>
 </mapper>

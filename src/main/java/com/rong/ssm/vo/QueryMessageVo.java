@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class QueryMessageVo {
     private String callingPhone;
-    private Date starTime;
+    private Date startTime;
     private Date endTime;
 
     public String getCallingPhone() {
@@ -18,12 +18,12 @@ public class QueryMessageVo {
         this.callingPhone = callingPhone;
     }
 
-    public Date getStarTime() {
-        return starTime;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setStarTime(Date starTime) {
-        this.starTime = starTime;
+    public void setStartTime(Date starTime) {
+        this.startTime = starTime;
     }
 
     public Date getEndTime() {

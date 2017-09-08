@@ -3,9 +3,11 @@ package com.rong.ssm.service.Impl;
 import com.rong.ssm.mapper.MessageMapper;
 import com.rong.ssm.pojo.Message;
 import com.rong.ssm.service.MessageService;
+import com.rong.ssm.vo.QueryMessageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,8 +24,15 @@ public class MessageServiceImpl implements MessageService{
     }
 
     @Override
-    public List<Message> listMessageByPhone(String phone) {
-        List<Message> messageList=messageMapper.selectByCallingPhone(phone);
-        return messageList;
+    public List<Message> listMessageByPhone(QueryMessageVo queryMessageVo) {
+        List<Message> messageList=messageMapper.selectByCallingPhone(queryMessageVo.getCallingPhone());
+        List<Message> result=new ArrayList<>();
+        for (Message message:messageList){
+            if(message.getStartTime().after(queryMessageVo.getStartTime())
+                    &&message.getStartTime().before(queryMessageVo.getEndTime())){
+                result.add(message);
+            }
+        }
+        return result;
     }
 }

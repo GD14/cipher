@@ -22,7 +22,7 @@ public class CallMapperTest {
     private CallMapper callMapper;
     @Test
     public  void getMessageByPhone(){
-        List<Call> callList=callMapper.selectByCallingPhone("15527185211");
+        List<Call> callList=callMapper.selectByCallingPhone(null);
 //            ....
 //            业务处理
         System.out.println(callList);
