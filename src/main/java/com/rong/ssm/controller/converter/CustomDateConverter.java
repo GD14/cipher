@@ -18,8 +18,9 @@ public class CustomDateConverter implements Converter<String,Date> {
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date date1= simpleDateFormat.parse(s);
-            java.sql.Date dbData= new java.sql.Date(date1.getTime());
-            return dbData;
+//            java.sql.Date dbData= new java.sql.Date(date1.getTime());
+//            return dbData;
+            return date1;
         } catch (ParseException e) {
             e.printStackTrace();
         }

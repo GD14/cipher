@@ -38,13 +38,13 @@ public class CustomerController {
             //判断登录成功则将用户名保存在session中
             if (custSignInResult.isSuccess()) {
                 HttpSession userNameSession = request.getSession(true);
-                userNameSession.setAttribute("userNameSession", custSignInResult.getCust_name());
+                userNameSession.setAttribute("customer", custSignInResult);
                 userNameSession.setMaxInactiveInterval(CommonValue.USER_SESSION_TIMEOUT_MINUTE);
             }
             return new CommonResult<>("0", custSignInResult);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
-            return new CommonResult<>("0", e.getMessage());
+            return new CommonResult<>("1", e.getMessage());
         }
     }
     @ResponseBody

@@ -9,6 +9,8 @@ import com.rong.ssm.vo.QueryMessageVo;
 import com.rong.ssm.vo.SignInForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,8 +28,8 @@ public class MessageController {
     private MessageService messageService;
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public CommonResult<List<Message>> List(QueryMessageVo queryMessageVo, HttpServletRequest request){
-        List<Message> messageList=messageService.listMessageByPhone(queryMessageVo.getCallingPhone());
+    public CommonResult<List<Message>> List(@Validated QueryMessageVo queryMessageVo, BindingResult bindingResult, HttpServletRequest request){
+        List<Message> messageList=messageService.listMessageByPhone(queryMessageVo);
         return new CommonResult<>("0",messageList);
     }
 
