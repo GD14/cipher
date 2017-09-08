@@ -98,6 +98,7 @@
 .table{
     width:80% !important;
     margin:30px auto !important;
+    visibility: hidden !important;
 }
 .table th, .table td {
     text-align: center !important;
