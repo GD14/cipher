@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class QueryMessageVo {
     private String callingPhone;
+    private String calledPhone;
     private Date startTime;
     private Date endTime;
 
