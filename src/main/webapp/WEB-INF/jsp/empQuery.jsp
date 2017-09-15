@@ -16,11 +16,8 @@
 
     <script  type="text/javascript" src="<%=path%>/js/static/jquery-3.2.1.min.js"></script>
     <script  type="text/javascript" src="<%=path%>/js/static/vue.js"></script>
-    <script  type="text/javascript" src="<%=path%>/js/static/bootstrap-datetimepicker.min.js"></script>
-
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap-theme.min.css" type="text/css" />
-    <link rel="stylesheet" href="<%=path%>/css/static/bootstrap-datetimepicker.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 
 </head>
@@ -43,8 +40,8 @@
             <hr/>
         </div>
         <div id="cus-query">
-            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryInfo;'">个人信息</div>
-            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryPro;'">我的套餐</div>
+            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryInfo;'">信息查询</div>
+            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryPro;'">套餐查询</div>
             <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryCalls;'">通话详单</div>
             <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryMes;'">短信详单</div>
         </div>

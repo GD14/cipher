@@ -10,6 +10,7 @@
     <script  type="text/javascript" src="<%=path%>/js/static/bootstrap-datetimepicker.min.js"></script>
 
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="<%=path%>/css/static/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/static/bootstrap-datetimepicker.min.css" type="text/css" />
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 </head>
@@ -40,8 +41,8 @@
             <div class="inputCallsSearch">
                 <div>自定义时间</div>
 
-                <span>自</span><input size="16" type="text" value="请输入时间" readonly class="callsPreTime">
-                <span>至</span><input size="16" type="text" value="请输入时间" readonly class="callsLasTime">
+                <span>自</span><input size="16" type="text" value="" readonly class="callsPreTime">
+                <span>至</span><input size="16" type="text" value="" readonly class="callsLasTime">
 
                 <button class="btn btnCallsSearch">搜索</button>
 
@@ -96,8 +97,12 @@
         })
     }
 
-    $(".callsPreTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-    $(".callsLasTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    $(".callsPreTime").datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        todayBtn : true,
+        bootcssVer:3,
+    });
+    $(".callsLasTime").datetimepicker({format: 'yyyy-mm-dd hh:ii',todayBtn : true,bootcssVer:3});
 
 </script>
 </html>

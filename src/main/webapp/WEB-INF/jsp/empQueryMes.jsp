@@ -36,7 +36,9 @@
         </div>
 
         <div class="cusMes">
+            <input class="input inputCusPh" type="text" placeholder="请输入用户手机号">
             <div class="inputMesSearch">
+
                 <div>自定义时间</div>
 
                 <span>自</span><input size="16" type="text" value="" readonly class="MesPreTime">
@@ -62,7 +64,10 @@
 </body>
 <script>
     $(".btnMesSearch").click(function(){
-        var callingPhone=15527185211;
+        var callingPhone=$(".inputCusPh").val();
+        if(callingPhone=="请输入用户手机号"){
+            return;
+        }
         var start_time=$(".MesPreTime").val();
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
