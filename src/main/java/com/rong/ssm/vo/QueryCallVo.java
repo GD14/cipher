@@ -7,8 +7,17 @@ import java.util.Date;
  */
 public class QueryCallVo {
     private String callingPhone;
+    private String calledPhone;
     private Date startTime;
     private Date endTime;
+
+    public String getCalledPhone() {
+        return calledPhone;
+    }
+
+    public void setCalledPhone(String calledPhone) {
+        this.calledPhone = calledPhone;
+    }
 
     public String getCallingPhone() {
         return callingPhone;
