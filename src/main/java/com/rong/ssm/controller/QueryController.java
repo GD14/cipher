@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 public class QueryController {
     @RequestMapping(value = "/cusQuery")
     public String cusQuery(HttpServletRequest request) {
-       return "cusQuery";
+        return "cusQuery";
     }
     @RequestMapping(value = "/cusQueryInfo")
     public String cusQueryInfo(HttpServletRequest request) {
@@ -34,5 +34,25 @@ public class QueryController {
     @RequestMapping(value = "/cusQueryMes")
     public String cusQueryMes(HttpServletRequest request) {
         return "cusQueryMes";
+    }
+    @RequestMapping(value = "/empQuery")
+    public String empQuery(HttpServletRequest request) {
+        return "empQuery";
+    }
+    @RequestMapping(value = "/empQueryInfo")
+    public String empQueryInfo(HttpServletRequest request) {
+        return "empQueryInfo";
+    }
+    @RequestMapping(value = "/empQueryPro")
+    public String empQueryPro(HttpServletRequest request) {
+        return "empQueryPro";
+    }
+    @RequestMapping(value = "/empQueryCalls")
+    public String empQueryCalls(HttpServletRequest request) {
+        return "empQueryCalls";
+    }
+    @RequestMapping(value = "/empQueryMes")
+    public String empQueryMes(HttpServletRequest request) {
+        return "empQueryMes";
     }
 }
