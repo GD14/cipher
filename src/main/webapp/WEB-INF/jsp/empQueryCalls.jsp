@@ -76,6 +76,8 @@
         var url="<%=path%>/api/call/list";
         var data={
             callingPhone:callingPhone,
+            type:"user",
+            id: null,
             startTime:start_time,
             endTime:end_time
         };

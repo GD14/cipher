@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50713
 File Encoding         : 65001
 
-Date: 2017-09-19 18:15:25
+Date: 2017-09-19 18:39:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,17 +70,18 @@ CREATE TABLE `customer` (
   `cust_name` varchar(255) DEFAULT NULL,
   `cust_sex` varchar(255) DEFAULT NULL,
   `cust_nbr` varchar(255) DEFAULT NULL,
+  `cust_pro_id` int(11) DEFAULT NULL COMMENT '产品id',
   `register_time` datetime DEFAULT NULL,
   `login_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('1', '1', '123123', '陈史', '男', '15527185212', '2017-09-05 15:03:08', '2017-09-05 15:03:13', '2017-09-05 15:03:22');
-INSERT INTO `customer` VALUES ('2', '2', '123123', '卢苏', '女', '17607185613', '2017-08-24 15:28:49', '2017-09-11 15:28:54', '2017-09-04 15:28:59');
+INSERT INTO `customer` VALUES ('80', '1', '123123', '陈瀚榕', '男', '15527185212', '31', '2014-09-19 18:38:05', '2014-09-19 18:38:13', '2017-09-19 18:38:21');
+INSERT INTO `customer` VALUES ('81', '2', '123123', '卢淘', '女', '17607185613', '31', '2013-09-19 18:39:03', '2013-09-19 18:39:08', '2017-09-19 18:39:15');
 
 -- ----------------------------
 -- Table structure for customer_info
