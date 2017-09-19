@@ -19,7 +19,7 @@
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
-                <li class="nav-visiting">查询</li>
+                <li class="nav-visiting"onclick="window.location.href='<%=path%>/query/empQuery;'">查询</li>
                 <li>消息</li>
             </ul>
         </div>

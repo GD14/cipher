@@ -26,7 +26,7 @@
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
-                <li class="nav-visiting">查询</li>
+                <li class="nav-visiting"onclick="window.location.href='<%=path%>/query/empQuery;'">查询</li>
                 <li>消息</li>
             </ul>
         </div>
@@ -38,7 +38,10 @@
         </div>
 
         <div class="cusCalls">
-            <input class="input inputCusPh" type="text" placeholder="请输入用户手机号">
+            <div class="cusPh">
+                <span>手机号</span>
+                <input class="input inputCusPh" type="text" placeholder="请输入用户手机号">
+            </div>
             <div class="inputCallsSearch">
                 <div>自定义时间</div>
 

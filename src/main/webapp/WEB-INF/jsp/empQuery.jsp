@@ -40,10 +40,10 @@
             <hr/>
         </div>
         <div id="cus-query">
-            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryInfo;'">信息查询</div>
-            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryPro;'">套餐查询</div>
-            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryCalls;'">通话详单</div>
-            <div class="query-category" onclick="window.location.href='<%=path%>/query/cusQueryMes;'">短信详单</div>
+            <div class="query-category" onclick="window.location.href='<%=path%>/query/empQueryInfo;'">信息查询</div>
+            <div class="query-category" onclick="window.location.href='<%=path%>/query/empQueryPro;'">套餐查询</div>
+            <div class="query-category" onclick="window.location.href='<%=path%>/query/empQueryCalls;'">通话详单</div>
+            <div class="query-category" onclick="window.location.href='<%=path%>/query/empQueryMes;'">短信详单</div>
         </div>
     </div>
 </div>

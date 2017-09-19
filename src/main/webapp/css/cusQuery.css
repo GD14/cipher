@@ -102,3 +102,20 @@
 .table th, .table td {
     text-align: center !important;
 }
+
+
+
+.cusPh span{
+    margin:20px 0px 0px 30px;
+}
+.cusPh .inputCusPh{
+    margin: 30px 0px 0px 30px;
+    height: 40px;
+    width: 160px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    border: 1.1px solid #eb7a28;
+    font-size: 16px;
+    color: #101010;
+}

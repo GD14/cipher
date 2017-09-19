@@ -26,7 +26,7 @@
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
-                <li class="nav-visiting">查询</li>
+                <li class="nav-visiting" onclick="window.location.href='<%=path%>/query/cusQuery;'">查询</li>
                 <li>消息</li>
             </ul>
         </div>
@@ -53,8 +53,8 @@
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.calling}}</td>
-                    <td>{{object.called}}</td>
+                    <td>{{object.calling_nbr}}</td>
+                    <td>{{object.called_nbr}}</td>
                     <td>{{object.startTime}}</td>
                     <td>{{object.endTime}}</td>
                 </tr>
@@ -66,7 +66,7 @@
 </body>
 <script>
     $(".btnCallsSearch").click(function(){
-        var callingPhone=15527185211;
+        var callingPhone=15527185212;
         var start_time=$(".callsPreTime").val();
         var end_time=$(".callsLasTime").val();
         var url="<%=path%>/api/call/list";
