@@ -13,8 +13,8 @@ public class Call {
     private Date endTime;
     private String location;
     private int contentId;
-    private String calling_nbr;
-    private String called_nbr;
+    private String callingNbr;
+    private String calledNbr;
     private String accessNbr;
     private int operListId;
     private int ticketId;
@@ -72,21 +72,7 @@ public class Call {
         return contentId;
     }
 
-    public String getCalling() {
-        return calling_nbr;
-    }
 
-    public void setCalling(String calling_nbr) {
-        this.calling_nbr = calling_nbr;
-    }
-
-    public String getCalled() {
-        return called_nbr;
-    }
-
-    public void setCalled(String called_nbr) {
-        this.called_nbr = called_nbr;
-    }
 
     public String getAccessNbr() {
         return accessNbr;
@@ -106,6 +92,22 @@ public class Call {
 
     public int getTicketId() {
         return ticketId;
+    }
+
+    public String getCallingNbr() {
+        return callingNbr;
+    }
+
+    public void setCallingNbr(String callingNbr) {
+        this.callingNbr = callingNbr;
+    }
+
+    public String getCalledNbr() {
+        return calledNbr;
+    }
+
+    public void setCalledNbr(String calledNbr) {
+        this.calledNbr = calledNbr;
     }
 
     public void setTicketId(int ticketId) {

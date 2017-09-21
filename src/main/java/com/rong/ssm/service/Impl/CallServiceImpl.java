@@ -19,6 +19,8 @@ public class CallServiceImpl implements CallService {
     @Override
     public List<Call> listCallByPhone(QueryCallVo queryCallVo) {
         List<Call> callList=callMapper.selectByCallingPhone(queryCallVo);
+        List<Call> calledList=callMapper.selectByCalledPhone(queryCallVo);
+        callList.addAll(calledList);
         return callList;
     }
 }

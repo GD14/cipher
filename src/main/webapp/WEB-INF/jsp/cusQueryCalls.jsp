@@ -53,8 +53,8 @@
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.calling_nbr}}</td>
-                    <td>{{object.called_nbr}}</td>
+                    <td>{{object.callingNbr}}</td>
+                    <td>{{object.calledNbr}}</td>
                     <td>{{object.startTime}}</td>
                     <td>{{object.endTime}}</td>
                 </tr>

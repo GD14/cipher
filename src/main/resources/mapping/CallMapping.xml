@@ -6,10 +6,7 @@
 <mapper namespace="com.rong.ssm.mapper.CallMapper">
     <select id="selectByCallingPhone" parameterType="com.rong.ssm.vo.QueryCallVo"  resultType="com.rong.ssm.pojo.Call">
         select * from `call`
-        where calling_nbr=#{callingPhone}
-        <if test="calledPhone!=null">
-            and called_nbr= #{calledPhone}
-        </if>
+        where calling_nbr=#{callingNbr}
         <if test="startTime!=null">
             and start_time &gt;= #{startTime,jdbcType=TIMESTAMP}
         </if>
@@ -17,4 +14,16 @@
             and end_time &lt;= #{endTime,jdbcType=TIMESTAMP}
         </if>
     </select>
+    <select id="selectByCalledPhone" parameterType="com.rong.ssm.vo.QueryCallVo"  resultType="com.rong.ssm.pojo.Call">
+        select * from `call`
+        where called_nbr=#{callingNbr}
+        <if test="startTime!=null">
+            and start_time &gt;= #{startTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endTime!=null">
+            and end_time &lt;= #{endTime,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+
 </mapper>

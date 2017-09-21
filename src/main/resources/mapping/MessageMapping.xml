@@ -4,10 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 命名空间 是必须的 -->
 <mapper namespace="com.rong.ssm.mapper.MessageMapper">
-    <select id="selectByCallingId" parameterType="int" resultType="com.rong.ssm.pojo.Message">
-        select * from `message` where calling_id=#{id}
-    </select>
+
     <select id="selectByCallingPhone" parameterType="String" resultType="com.rong.ssm.pojo.Message">
-        select * from `message` where calling=#{id}
+        select * from `message`
+        where send_nbr=#{sendNbr}
+        <if test="startTime!=null">
+            and start_time &gt;= #{startTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endTime!=null">
+            and end_time &lt;= #{endTime,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+    <select id="selectByReceiveNbr" parameterType="int" resultType="com.rong.ssm.pojo.Message">
+        select * from `message`
+        where receive_nbr=#{sendNbr}
+        <if test="startTime!=null">
+            and start_time &gt;= #{startTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endTime!=null">
+            and end_time &lt;= #{endTime,jdbcType=TIMESTAMP}
+        </if>
     </select>
 </mapper>

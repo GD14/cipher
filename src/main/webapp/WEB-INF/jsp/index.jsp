@@ -48,7 +48,6 @@
         var data={
             phone: userName,
             passwd: userPwd,
-            type: userType,
         };
         $.ajax({
             type: 'POST',

@@ -7,14 +7,14 @@ import java.util.Date;
  */
 public class Message {
     private int id;
-    private int callingId;
-    private int calledId;
+    private int sendId;
+    private int receiveId;
     private Date startTime;
     private Date endTime;
     private String location;
     private String context;
-    private String calling;
-    private String called;
+    private String sendNbr;
+    private String receiveNbr;
 
     public int getId() {
         return id;
@@ -24,20 +24,36 @@ public class Message {
         this.id = id;
     }
 
-    public int getCallingId() {
-        return callingId;
+    public int getSendId() {
+        return sendId;
     }
 
-    public void setCallingId(int callingId) {
-        this.callingId = callingId;
+    public void setSendId(int sendId) {
+        this.sendId = sendId;
     }
 
-    public int getCalledId() {
-        return calledId;
+    public int getReceiveId() {
+        return receiveId;
     }
 
-    public void setCalledId(int calledId) {
-        this.calledId = calledId;
+    public void setReceiveId(int receiveId) {
+        this.receiveId = receiveId;
+    }
+
+    public String getSendNbr() {
+        return sendNbr;
+    }
+
+    public void setSendNbr(String sendNbr) {
+        this.sendNbr = sendNbr;
+    }
+
+    public String getReceiveNbr() {
+        return receiveNbr;
+    }
+
+    public void setReceiveNbr(String receiveNbr) {
+        this.receiveNbr = receiveNbr;
     }
 
     public Date getStartTime() {
@@ -72,19 +88,5 @@ public class Message {
         this.context = context;
     }
 
-    public String getCalling() {
-        return calling;
-    }
 
-    public void setCalling(String calling) {
-        this.calling = calling;
-    }
-
-    public String getCalled() {
-        return called;
-    }
-
-    public void setCalled(String called) {
-        this.called = called;
-    }
 }

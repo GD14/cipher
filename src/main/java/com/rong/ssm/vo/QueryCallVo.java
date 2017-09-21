@@ -6,25 +6,25 @@ import java.util.Date;
  * Created by GD14 on 2017/9/8.
  */
 public class QueryCallVo {
-    private String callingPhone;
-    private String calledPhone;
+    private String callingNbr;
+    private String calledNbr;
     private Date startTime;
     private Date endTime;
 
     public String getCalledPhone() {
-        return calledPhone;
+        return calledNbr;
     }
 
-    public void setCalledPhone(String calledPhone) {
-        this.calledPhone = calledPhone;
+    public void setCalledPhone(String calledNbr) {
+        this.calledNbr = calledNbr;
     }
 
     public String getCallingPhone() {
-        return callingPhone;
+        return callingNbr;
     }
 
-    public void setCallingPhone(String callingPhone) {
-        this.callingPhone = callingPhone;
+    public void setCallingPhone(String callingNbr) {
+        this.callingNbr= callingNbr;
     }
 
     public Date getStartTime() {
