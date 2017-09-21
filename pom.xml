@@ -26,7 +26,12 @@
     <hibernate.version>5.1.0.Final</hibernate.version>
     <validation.api.version>1.1.0.Final</validation.api.version>
   </properties>
-
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 
   <dependencies>
     <!-- 添加jstl依赖 -->
@@ -215,6 +220,11 @@
       <artifactId>commons-codec</artifactId>
       <version>1.9</version>
     </dependency>
+      <dependency>
+          <groupId>com.github.emilianobonassi</groupId>
+          <artifactId>jpbc</artifactId>
+          <version>v2.0.0</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>cipher</finalName>
