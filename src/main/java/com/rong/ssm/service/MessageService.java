@@ -11,6 +11,5 @@ import java.util.List;
  * Created by GD14 on 2017/9/5.
  */
 public interface MessageService {
-    public List<Message> listMessageByUid(Integer uid);
     public List<Message> listMessageByPhone(QueryMessageVo queryMessageVo);
 }

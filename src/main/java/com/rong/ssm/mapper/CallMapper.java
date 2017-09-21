@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface CallMapper {
     public List<Call> selectByCallingPhone(QueryCallVo queryCallVo);
+    public List<Call> selectByCalledPhone(QueryCallVo queryCallVo);
 }

@@ -18,14 +18,8 @@ public class MessageServiceImpl implements MessageService{
     @Autowired
     MessageMapper messageMapper;
     @Override
-    public List<Message> listMessageByUid(Integer uid){
-     List<Message> messageList=messageMapper.selectByCallingId(uid);
-     return messageList;
-    }
-
-    @Override
     public List<Message> listMessageByPhone(QueryMessageVo queryMessageVo) {
-        List<Message> messageList=messageMapper.selectByCallingPhone(queryMessageVo.getCallingPhone());
+        List<Message> messageList=messageMapper.selectByCallingPhone(queryMessageVo.getSendNbr());
         List<Message> result=new ArrayList<>();
         for (Message message:messageList){
             if(message.getStartTime().after(queryMessageVo.getStartTime())

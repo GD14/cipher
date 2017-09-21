@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 </head>
 <style>
-
+    .mesT{
+        visibility: hidden;
+    }
 
 </style>
 <body>
