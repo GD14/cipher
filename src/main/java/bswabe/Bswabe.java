@@ -1,9 +1,9 @@
 package bswabe;
 
-import it.unisa.dia.gas.jpbc.PairingParameters;
+//import it.unisa.dia.gas.jpbc.CurveParameters;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
-import it.unisa.dia.gas.plaf.jpbc.pairing.DefaultCurveParameters;
+//import it.unisa.dia.gas.plaf.jpbc.pairing.DefaultCurveParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 import java.io.ByteArrayInputStream;
@@ -31,7 +31,7 @@ public class Bswabe {
 	public static void setup(BswabePub pub, BswabeMsk msk) {
 		Element alpha, beta_inv;
 
-		PairingParameters params = new PairingFactory().EllipticCurvesPairingCreator()
+		CurveParameters params = new DefaultCurveParameters()
 				.load(new ByteArrayInputStream(curveParams.getBytes()));
 
 		pub.pairingDesc = curveParams;
