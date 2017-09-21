@@ -49,12 +49,14 @@
             </div>
             <table id="cusMesInfo" class="table table-hover MesT"  >
                 <tr>
-                    <th>序号</th><th>发送用户</th><th>接收用户</th>
+                    <th>序号</th><th>发送用户</th><th>接收用户</th><th>内容</th><th>发送时间</th>
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.sendName}}</td>
-                    <td>{{object.receiveName}}</td>
+                    <td>{{object.sendNbr}}</td>
+                    <td>{{object.receiveNbr}}</td>
+                    <td>{{object.context}}</td>
+                    <td>{{object.startTime}}</td>
                 </tr>
             </table>
         </div>
@@ -64,12 +66,12 @@
 </body>
 <script>
     $(".btnMesSearch").click(function(){
-        var callingPhone=15527185211;
+        var sendNbr=15527185212;
         var start_time=$(".MesPreTime").val();
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
         var data={
-            callingPhone:callingPhone,
+            sendNbr:sendNbr,
             start_time:start_time,
             end_time:end_time
         };

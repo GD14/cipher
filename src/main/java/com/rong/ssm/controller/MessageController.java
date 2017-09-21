@@ -29,7 +29,7 @@ public class MessageController {
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public CommonResult<List<Message>> List(@Validated QueryMessageVo queryMessageVo, BindingResult bindingResult, HttpServletRequest request){
-        List<Message> messageList=messageService.listMessageByPhone(queryMessageVo);
+        List<Message> messageList=messageService.listMessageBySendNbr(queryMessageVo);
         return new CommonResult<>("0",messageList);
     }
 
