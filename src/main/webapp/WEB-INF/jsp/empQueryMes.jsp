@@ -14,13 +14,16 @@
     <link rel="stylesheet" href="<%=path%>/css/cusQuery.css" type="text/css" />
 </head>
 <style>
+    .mesT{
+        visibility: hidden;
+    }
 
 
 </style>
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">17607185613</div>
+        <div class="user-name text-center">${manager.managerName}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -36,7 +39,10 @@
         </div>
 
         <div class="cusMes">
-            <input class="input inputCusPh" type="text" placeholder="请输入用户手机号">
+            <div class="cusPh">
+                <span>手机号</span>
+                <input class="input inputCusPh" type="text" placeholder="请输入用户手机号">
+            </div>
             <div class="inputMesSearch">
 
                 <div>自定义时间</div>
@@ -49,12 +55,14 @@
             </div>
             <table id="cusMesInfo" class="table table-hover MesT"  >
                 <tr>
-                    <th>序号</th><th>发送用户</th><th>接收用户</th>
+                    <th>序号</th><th>发送用户</th><th>接收用户</th><th>内容</th><th>发送时间</th>
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.sendName}}</td>
-                    <td>{{object.receiveName}}</td>
+                    <td>{{object.sendNbr}}</td>
+                    <td>{{object.receiveNbr}}</td>
+                    <td>{{object.context}}</td>
+                    <td>{{object.startTime}}</td>
                 </tr>
             </table>
         </div>
@@ -72,9 +80,9 @@
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
         var data={
-            callingPhone:callingPhone,
-            start_time:start_time,
-            end_time:end_time
+            sendNbr:callingPhone,
+            startTime:start_time,
+            endTime:end_time
         };
         $.ajax({
             type: 'POST',

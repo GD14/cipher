@@ -74,8 +74,8 @@
         var url="<%=path%>/api/message/list";
         var data={
             sendNbr:sendNbr,
-            start_time:start_time,
-            end_time:end_time
+            startTime:start_time,
+            endTime:end_time
         };
         $.ajax({
             type: 'POST',
