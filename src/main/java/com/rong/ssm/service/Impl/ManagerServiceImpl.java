@@ -1,6 +1,6 @@
 package com.rong.ssm.service.Impl;
 
-import com.rong.ssm.dto.CustSignInResult;
+import com.rong.ssm.dto.ManagerSignInResult;
 import com.rong.ssm.exception.DataExistException;
 import com.rong.ssm.exception.DataMatchException;
 import com.rong.ssm.mapper.ManagerMapper;
@@ -19,8 +19,8 @@ public class ManagerServiceImpl  implements ManagerService{
     @Autowired
     private ManagerMapper managerMapper;
 
-    public CustSignInResult signIn(SignInForm signInForm){
-        Manager manager= managerMapper.selectByPhone(signInForm);
+    public ManagerSignInResult signIn(SignInForm signInForm){
+        Manager manager= managerMapper.selectByPhone(signInForm.getPhone());
         if (manager == null) {
             throw new DataExistException("用户不存在");
         }
@@ -29,7 +29,7 @@ public class ManagerServiceImpl  implements ManagerService{
         } else {
             // PS 用户登录状态保存处理操作在Controller中
             //进行解密
-            return null;
+            return new ManagerSignInResult(manager);
         }
 
 

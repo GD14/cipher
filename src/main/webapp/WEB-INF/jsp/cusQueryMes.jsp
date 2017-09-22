@@ -19,10 +19,12 @@
     }
 
 </style>
+
 <body>
+
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">17607185613</div>
+        <div class="user-name text-center">${customer.cust_name}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -49,12 +51,14 @@
             </div>
             <table id="cusMesInfo" class="table table-hover MesT"  >
                 <tr>
-                    <th>序号</th><th>发送用户</th><th>接收用户</th>
+                    <th>序号</th><th>发送用户</th><th>接收用户</th><th>内容</th><th>发送时间</th>
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.sendName}}</td>
-                    <td>{{object.receiveName}}</td>
+                    <td>{{object.sendNbr}}</td>
+                    <td>{{object.receiveNbr}}</td>
+                    <td>{{object.context}}</td>
+                    <td>{{object.startTime}}</td>
                 </tr>
             </table>
         </div>
@@ -64,12 +68,12 @@
 </body>
 <script>
     $(".btnMesSearch").click(function(){
-        var callingPhone=15527185211;
+        var sendNbr=${customer.cust_nbr};
         var start_time=$(".MesPreTime").val();
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
         var data={
-            callingPhone:callingPhone,
+            sendNbr:sendNbr,
             start_time:start_time,
             end_time:end_time
         };
@@ -94,19 +98,6 @@
             }
         })
     }
-
-
-    /*var cusMesD=[
-        {index:"1", sendName:"卢桃", receiveName:"雯馨"},
-        {index:"2", sendName:"卢桃", receiveName:"雯馨"},
-        {index:"3", sendName:"卢桃", receiveName:"雯馨"}
-    ];
-    new Vue({
-        el: '#cusMesInfo',
-        data: {
-            object:cusMesD
-        }
-    })*/
     $(".MesPreTime").datetimepicker({
         format: 'yyyy-mm-dd hh:ii',
         todayBtn : true,

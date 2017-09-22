@@ -3,11 +3,13 @@ package com.rong.ssm.controller;
 import com.rong.ssm.common.CommonResult;
 import com.rong.ssm.common.CommonValue;
 import com.rong.ssm.dto.CustSignInResult;
-import com.rong.ssm.dto.UserSignInResult;
 import com.rong.ssm.service.CustomerService;
-import com.rong.ssm.service.UserService;
 import com.rong.ssm.vo.SignInForm;
+import com.rong.ssm.dto.UserSignInResult;
+import com.rong.ssm.service.UserService;
 import com.rong.ssm.vo.UserSignInForm;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
