@@ -1,4 +1,4 @@
-package cpabe.policy;
+package com.rong.ssm.util.cpabe.policy;
 
 import java.util.ArrayList;
 import java.util.Collections;

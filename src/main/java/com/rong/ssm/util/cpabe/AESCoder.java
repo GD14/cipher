@@ -1,4 +1,4 @@
-package cpabe;
+package com.rong.ssm.util.cpabe;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

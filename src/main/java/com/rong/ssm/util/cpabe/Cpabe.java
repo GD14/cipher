@@ -1,7 +1,7 @@
-package cpabe;
+package com.rong.ssm.util.cpabe;
 
 import bswabe.*;
-import cpabe.policy.LangPolicy;
+import com.rong.ssm.util.cpabe.policy.LangPolicy;
 import it.unisa.dia.gas.jpbc.Element;
 
 import java.io.IOException;
