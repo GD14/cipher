@@ -26,7 +26,6 @@ public class CpabeToolTest {
     @Test
     public  void TestKeygen() throws Exception {
 
-
         /**
          * 测试 keygen
          */
@@ -69,7 +68,25 @@ public class CpabeToolTest {
 
         byte[] ans=cpabeTool.dec(pubfile,prv_Bytes,encfile);
         System.out.println(new String(ans));
-        return;
+
+
+
+        /**
+         *  aes 获取密钥
+         */
+
+
+
+
     }
 
+    @Test
+    public void test2() throws Exception{
+
+        String str="hello rong";
+        byte[] a=AESCoder.encrypt("100".getBytes(),str.getBytes());
+
+        byte[] b=AESCoder.decrypt("130".getBytes(),a);
+        System.out.println(new String(b));
+    }
 }

@@ -27,7 +27,7 @@ public class ManagerMapperTest {
         signInForm.setPhone("15527185222");
         signInForm.setPasswd("123123");
 
-       Manager manager= managerMapper.selectByPhone(signInForm);
+       Manager manager= managerMapper.selectByPhone(null);
         System.out.println(manager);
     }
 }

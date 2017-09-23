@@ -21,17 +21,8 @@ public class MessageMapperTest {
     @Autowired
     private MessageMapper messageMapper;
     @Test
-    public void getMessageById() throws Exception{
-
-        List<Message> messageList=messageMapper.selectByCallingId(2);
-//            ....
-//            业务处理
-        System.out.println(messageList);
-    }
-
-    @Test
     public  void getMessageByPhone(){
-        List<Message> messageList=messageMapper.selectByCallingPhone("15527185211");
+        List<Message> messageList=messageMapper.selectByReceiveNbr(null);
 //            ....
 //            业务处理
         System.out.println(messageList);

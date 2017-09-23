@@ -1,5 +1,7 @@
 package com.rong.ssm.util.cpabe;
 
+import org.apache.commons.codec.binary.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -28,6 +30,7 @@ public class AESCoder {
 		return encrypted;
 	}
 
+
 	public static byte[] decrypt(byte[] seed, byte[] ciphertext)
 			throws Exception {
 		byte[] raw = getRawKey(seed);
@@ -37,6 +40,17 @@ public class AESCoder {
 		byte[] decrypted = cipher.doFinal(ciphertext);
 		
 		return decrypted;
+	}
+	public static String  Ancrypt(byte[] seed, String plainString)
+			throws Exception {
+		byte[] ret =encrypt(seed,plainString.getBytes("UTF-8"));
+		String temStr= new String(Base64.encodeBase64(ret));
+		return temStr;
+	}
+	public static String  Decrypt(byte[] seed, String ciphertext)
+			throws Exception {
+		byte[] ret = decrypt(seed,Base64.decodeBase64(ciphertext));
+		return new String(ret,"UTF-8");
 	}
 
 }
