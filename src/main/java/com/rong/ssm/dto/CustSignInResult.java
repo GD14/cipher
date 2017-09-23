@@ -13,6 +13,8 @@ public class CustSignInResult {
     private Date reg_time;
     private String cust_nbr;
     private Date login_time;
+    private String cust_sex;
+    private Date updateTime;
 
     public CustSignInResult(Customer customer){
 
@@ -21,6 +23,8 @@ public class CustSignInResult {
         this.cust_nbr=customer.getCustNbr();
         this.reg_time=customer.getRegisterTime();
         this.login_time=customer.getLoginTime();
+        this.cust_sex=customer.getCustSex();
+        this.updateTime=customer.getUpdateTime();
     }
     @Override
     public String toString() {
@@ -74,5 +78,25 @@ public class CustSignInResult {
 
     public void setLogin_time(Date login_time) {
         this.login_time = login_time;
+    }
+
+    public void setCust_id(Integer cust_id) {
+        this.cust_id = cust_id;
+    }
+
+    public String getCust_sex() {
+        return cust_sex;
+    }
+
+    public void setCust_sex(String cust_sex) {
+        this.cust_sex = cust_sex;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

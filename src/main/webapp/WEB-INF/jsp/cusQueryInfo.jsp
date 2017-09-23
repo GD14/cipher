@@ -22,7 +22,7 @@
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">17607185613</div>
+        <div class="user-name text-center">${customer.cust_name}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -50,11 +50,11 @@
 
 
     var cusInfoD={
-     姓名:"卢桃",
-     性别:"女",
-     手机号码:"17607185613",
-     身份证号:"*******************",
-     联系地址:"武汉大学文理学籍计算机学院",
+        姓名:"${customer.cust_name}",
+        性别:"${customer.cust_sex}",
+        手机号码:"${customer.cust_nbr}",
+        最近更新时间:"${customer.updateTime}",
+        注册时间:"${customer.login_time}"
      };
     new Vue({
         el: '#cusInfo',

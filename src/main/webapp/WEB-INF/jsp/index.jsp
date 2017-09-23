@@ -32,7 +32,7 @@
             </label>
         </div>
 
-        <input type="submit" value="登录"class="login-sub" >
+        <input type="button" value="登录"class="login-sub" >
     </form>
 </div>
 </body>
@@ -41,13 +41,17 @@
         var userName=$(".user-name").val();
         var userPwd=$(".user-pwd").val();
         var userType=$(".user-type").find("input:checked").val();
-        if(userName==null|userPwd==null){
+        if(userName==""|userPwd==""){
             return;
         }
         var url="<%=path%>/api/customer/signIn";
+
+        if(userType=="1"){
+            url="<%=path%>/api/manager/signIn";
+        }
         var data={
             phone: userName,
-            passwd: userPwd,
+            passwd: userPwd
         };
         $.ajax({
             type: 'POST',

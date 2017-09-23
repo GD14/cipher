@@ -28,7 +28,7 @@
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
-      <div class="user-name text-center">17607185613</div>
+      <div class="user-name text-center">${customer.cust_name}</div>
       <div class="nav-ul text-center">
           <ul class="list-unstyled">
               <li>主页</li>

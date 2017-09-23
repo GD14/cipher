@@ -7,5 +7,5 @@ import com.rong.ssm.vo.SignInForm;
  * Created by GD14 on 2017/9/8.
  */
 public interface ManagerMapper {
-    public Manager selectByPhone(SignInForm signInForm);
+    public Manager selectByPhone(String ManagerNbr);
 }

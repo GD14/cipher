@@ -19,10 +19,12 @@
     }
 
 </style>
+
 <body>
+
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">17607185613</div>
+        <div class="user-name text-center">${customer.cust_name}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -66,7 +68,7 @@
 </body>
 <script>
     $(".btnMesSearch").click(function(){
-        var sendNbr=15527185212;
+        var sendNbr=${customer.cust_nbr};
         var start_time=$(".MesPreTime").val();
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
@@ -96,19 +98,6 @@
             }
         })
     }
-
-
-    /*var cusMesD=[
-        {index:"1", sendName:"卢桃", receiveName:"雯馨"},
-        {index:"2", sendName:"卢桃", receiveName:"雯馨"},
-        {index:"3", sendName:"卢桃", receiveName:"雯馨"}
-    ];
-    new Vue({
-        el: '#cusMesInfo',
-        data: {
-            object:cusMesD
-        }
-    })*/
     $(".MesPreTime").datetimepicker({
         format: 'yyyy-mm-dd hh:ii',
         todayBtn : true,
