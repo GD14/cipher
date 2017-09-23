@@ -22,7 +22,7 @@
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">17607185613</div>
+        <div class="user-name text-center">${manager.managerName}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -57,8 +57,8 @@
                 </tr>
                 <tr v-for="(object,index) in object">
                     <td>{{index+1}}</td>
-                    <td>{{object.calling}}</td>
-                    <td>{{object.called}}</td>
+                    <td>{{object.callingNbr}}</td>
+                    <td>{{object.calledNbr}}</td>
                     <td>{{object.startTime}}</td>
                     <td>{{object.endTime}}</td>
                 </tr>
@@ -78,7 +78,7 @@
         var end_time=$(".callsLasTime").val();
         var url="<%=path%>/api/call/list";
         var data={
-            callingPhone:callingPhone,
+            callingNbr:callingPhone,
             type:"user",
             id: null,
             startTime:start_time,

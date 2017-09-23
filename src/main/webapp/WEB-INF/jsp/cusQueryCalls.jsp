@@ -71,7 +71,7 @@
         var end_time=$(".callsLasTime").val();
         var url="<%=path%>/api/call/list";
         var data={
-            callingPhone:callingPhone,
+            callingNbr:callingPhone,
             startTime:start_time,
             endTime:end_time
         };

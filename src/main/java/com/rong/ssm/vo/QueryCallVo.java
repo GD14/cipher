@@ -11,20 +11,20 @@ public class QueryCallVo {
     private Date startTime;
     private Date endTime;
 
-    public String getCalledPhone() {
+    public String getCalledNbr() {
         return calledNbr;
     }
 
-    public void setCalledPhone(String calledNbr) {
+    public void setCalledNbr(String calledNbr) {
         this.calledNbr = calledNbr;
     }
 
-    public String getCallingPhone() {
+    public String getCallingNbr() {
         return callingNbr;
     }
 
-    public void setCallingPhone(String callingNbr) {
-        this.callingNbr= callingNbr;
+    public void setCallingNbr(String callingNbr) {
+        this.callingNbr = callingNbr;
     }
 
     public Date getStartTime() {
