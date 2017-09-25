@@ -6,4 +6,5 @@ import com.rong.ssm.vo.SignInForm;
  */
 public interface CustomerService {
     public CustSignInResult signIn(SignInForm signInForm)throws  Exception;
+    public  String     setNbrByUid(SignInForm signInForm)throws  Exception;
 }

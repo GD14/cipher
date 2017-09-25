@@ -31,7 +31,5 @@ public class ManagerServiceImpl  implements ManagerService{
             //进行解密
             return new ManagerSignInResult(manager);
         }
-
-
     }
 }

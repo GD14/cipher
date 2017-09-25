@@ -49,6 +49,13 @@ public class CustomerController {
             return new CommonResult<>("1", e.getMessage());
         }
     }
+
+    @ResponseBody
+    @RequestMapping(value="setNbrByUid",method =RequestMethod.POST )
+    public CommonResult<String> setNbrByUid(SignInForm signInForm, HttpServletRequest request){
+        //customerService.setNbrByUid(signInForm);
+        return new CommonResult<>("1");
+    }
     @ResponseBody
     @RequestMapping(value = "/signOut", method = RequestMethod.GET)
     public CommonResult signOut(HttpServletRequest request) {

@@ -23,4 +23,8 @@ public class CallServiceImpl implements CallService {
         callList.addAll(calledList);
         return callList;
     }
+
+    public void setCalledNbr(Integer uid,String nbr){
+
+    }
 }

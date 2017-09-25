@@ -7,6 +7,7 @@ import com.rong.ssm.exception.DataMatchException;
 import com.rong.ssm.mapper.CustomerMapper;
 import com.rong.ssm.pojo.Customer;
 import com.rong.ssm.service.CustomerService;
+import com.rong.ssm.util.DataProcessTool;
 import com.rong.ssm.util.cpabe.AESCoder;
 import com.rong.ssm.vo.SignInForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,7 @@ public class CustomerServiceImpl implements CustomerService{
     public CustSignInResult signIn(SignInForm signInForm) throws Exception {
 
         //加密用户参数
-
-        //加密用户手机
-        signInForm.setPhone(AESCoder.Ancrypt(seed.getBytes(),signInForm.getPhone()));
+        DataProcessTool.Process(signInForm);
         //*****
         Customer customer=customerMapper.selectByPhone(signInForm.getPhone());
         if (customer == null) {
@@ -38,9 +37,16 @@ public class CustomerServiceImpl implements CustomerService{
 
             // PS 用户登录状态保存处理操作在Controller中
             //进行解密
-          customer.setCustNbr(AESCoder.Decrypt(seed.getBytes(),customer.getCustNbr()));
 
-            return new CustSignInResult(customer );
+            CustSignInResult custSignInResult=new CustSignInResult(customer );
+            DataProcessTool.Process(custSignInResult);
+            return custSignInResult;
         }
+    }
+
+    public  String    setNbrByUid(SignInForm signInForm)throws  Exception{
+
+
+        return "操作成功";
     }
 }
