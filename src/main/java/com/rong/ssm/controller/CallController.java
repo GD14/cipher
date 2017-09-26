@@ -23,8 +23,12 @@ public class CallController {
     private CallService callService;
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public CommonResult<List<Call>> List(QueryCallVo queryCallVo, HttpServletRequest request) throws Exception {
-        List<Call> callList=callService.listCallByPhone(queryCallVo);
-        return new CommonResult<>("0",callList);
+    public CommonResult<List<Call>> List(QueryCallVo queryCallVo, HttpServletRequest request)  {
+        try {
+            List<Call> callList=callService.listCallByPhone(queryCallVo);
+            return new CommonResult<>("0",callList);
+        }catch (Exception e){
+          return new CommonResult<>("1");
+        }
     }
 }

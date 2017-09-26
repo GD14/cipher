@@ -20,12 +20,11 @@ import org.springframework.stereotype.Service;
 public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerMapper customerMapper;
-    private static String seed="IMTHESEED";
     @Override
     public CustSignInResult signIn(SignInForm signInForm) throws Exception {
 
         //加密用户参数
-        DataProcessTool.Process(signInForm);
+        DataProcessTool.Encrypt(signInForm);
         //*****
         Customer customer=customerMapper.selectByPhone(signInForm.getPhone());
         if (customer == null) {
@@ -39,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService{
             //进行解密
 
             CustSignInResult custSignInResult=new CustSignInResult(customer );
-            DataProcessTool.Process(custSignInResult);
+            DataProcessTool.Decrypt(custSignInResult,null);
             return custSignInResult;
         }
     }

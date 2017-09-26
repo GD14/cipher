@@ -30,43 +30,25 @@ public class CpabeTool {
         Common.spitFile(mskfile, msk_byte);
     }
 
-    public byte[]   keygen(String pubfile, String mskfile,
+    public byte[]   keygen(BswabePub pub, BswabeMsk msk,
                        String attr_str) throws NoSuchAlgorithmException, IOException {
-        BswabePub pub;
-        BswabeMsk msk;
-        byte[] pub_byte, msk_byte, prv_byte;
-
-		/* get BswabePub from pubfile */
-        pub_byte = Common.suckFile(pubfile);
-        pub = SerializeUtils.unserializeBswabePub(pub_byte);
-
-		/* get BswabeMsk from mskfile */
-        msk_byte = Common.suckFile(mskfile);
-        msk = SerializeUtils.unserializeBswabeMsk(pub, msk_byte);
-
+        byte[] prv_byte;
         String[] attr_arr = LangPolicy.parseAttribute(attr_str);
         BswabePrv prv = Bswabe.keygen(pub, msk, attr_arr);
-
 		/* store BswabePrv into prvfile */
         prv_byte = SerializeUtils.serializeBswabePrv(prv);
         return prv_byte;
     }
 
-    public void enc(String pubfile, String policy, String inputfile,
+    public void enc( BswabePub pub, String policy, String inputfile,
                     String encfile) throws Exception {
-        BswabePub pub;
+
         BswabeCph cph;
         BswabeCphKey keyCph;
         byte[] plt;
         byte[] cphBuf;
         byte[] aesBuf;
-        byte[] pub_byte;
         Element m;
-
-		/* get BswabePub from pubfile */
-        pub_byte = Common.suckFile(pubfile);
-        pub = SerializeUtils.unserializeBswabePub(pub_byte);
-
         keyCph = Bswabe.enc(pub, policy);
         cph = keyCph.cph;
         m = keyCph.key;
@@ -86,18 +68,13 @@ public class CpabeTool {
         Common.writeCpabeFile(encfile, cphBuf, aesBuf);
     }
 
-    public byte[] dec(String pubfile, byte[] prv_byte, String encfile) throws Exception {
+    public byte[] dec(BswabePub pub, byte[] prv_byte, String encfile) throws Exception {
         byte[] aesBuf, cphBuf;
         byte[] plt;
         byte[] pub_byte;
         byte[][] tmp;
         BswabeCph cph;
         BswabePrv prv;
-        BswabePub pub;
-
-		/* get BswabePub from pubfile */
-        pub_byte = Common.suckFile(pubfile);
-        pub = SerializeUtils.unserializeBswabePub(pub_byte);
 
 		/* read ciphertext */
         tmp = Common.readCpabeFile(encfile);

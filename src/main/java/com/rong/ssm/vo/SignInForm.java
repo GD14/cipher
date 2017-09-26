@@ -8,7 +8,6 @@ public class SignInForm {
     private String passwd;
     private String cust_nbr;
 
-
     public String getCust_nbr() {
         return cust_nbr;
     }

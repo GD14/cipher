@@ -16,84 +16,62 @@ import java.util.Set;
  * Created by rong on 2017/9/23.
  */
 public class DataProcessTool {
-    private static String seed="IMTHESEED";
-    private static Map<String,Set<String>> map=null;
+    //private static String seed="IMTHESEED";
+//    private static Map<String,Set<String>> map=null;
     public static Integer DATA_ENCRYPT=0;
     public static Integer DATA_DECRYPT=1;
-
-    public static void Process(QueryMessageVo o) throws  Exception{
-        Set<String> fields=getMap().get("message");
+    public static void Encrypt(QueryMessageVo o) throws  Exception{
+        Set<String> fields=CipherFieldTool.getMap().get("message");
         Class c=Class.forName("com.rong.ssm.vo.QueryMessageVo");
-        process(o,c,fields,DATA_ENCRYPT);
+        process(o,c,fields,DATA_ENCRYPT,CipherFieldTool.getSeed());
     }
-    public static void Process(Message message)throws Exception{
-        Set<String> fields=getMap().get("message");
+    public static void Decrypt(Message message,byte[] seed)throws Exception{
+        Set<String> fields=CipherFieldTool.getMap().get("message");
         Class c=Class.forName("com.rong.ssm.pojo.Message");
-        process(message,c,fields,DATA_DECRYPT);
+        if(seed==null)
+            seed=CipherFieldTool.getSeed();
+        process(message,c,fields,DATA_DECRYPT,seed);
     }
-
-    public static void Process(QueryCallVo o) throws  Exception{
-        Set<String> fields=getMap().get("call");
+    public static void Encrypt(QueryCallVo o) throws  Exception{
+        Set<String> fields=CipherFieldTool.getMap().get("call");
         Class c=Class.forName("com.rong.ssm.vo.QueryCallVo");
-        process(o,c,fields,DATA_ENCRYPT);
+        process(o,c,fields,DATA_ENCRYPT,CipherFieldTool.getSeed());
     }
-
-    public static void Process(Call calls)throws Exception{
-        Set<String> fields=getMap().get("call");
+    public static void Decrypt(Call calls,byte[] seed)throws Exception{
+        Set<String> fields=CipherFieldTool.getMap().get("call");
         Class c=Class.forName("com.rong.ssm.pojo.Call");
-        process(calls,c,fields,DATA_DECRYPT);
+        if(seed==null)
+            seed=CipherFieldTool.getSeed();
+        process(calls,c,fields,DATA_DECRYPT,seed);
     }
-    public static void Process(SignInForm o) throws  Exception{
+    public static void Encrypt(SignInForm o) throws  Exception{
         o.setCust_nbr(o.getPhone());
-        Map<String,Set<String>> tableMap=getMap();
-        Set<String> fields=null;
-        Class c=null;
-        c= Class.forName("com.rong.ssm.vo.SignInForm");
-        fields=tableMap.get("customer");
-        process(o,c,fields,DATA_ENCRYPT);
+        Set<String> fields=CipherFieldTool.getMap().get("customer");
+        Class c= Class.forName("com.rong.ssm.vo.SignInForm");
+        process(o,c,fields,DATA_ENCRYPT,CipherFieldTool.getSeed());
         o.setPhone(o.getCust_nbr());
     }
-
-    public static void Process(CustSignInResult o) throws  Exception{
-        Map<String,Set<String>> tableMap=getMap();
-        Set<String> fields=null;
-        Class c=null;
-        c= Class.forName("com.rong.ssm.dto.CustSignInResult");
-        fields=tableMap.get("customer");
-        process(o,c,fields,DATA_DECRYPT);
+    public static void Decrypt(CustSignInResult o,byte[] seed) throws  Exception{
+        Set<String> fields=CipherFieldTool.getMap().get("customer");
+        Class c=Class.forName("com.rong.ssm.dto.CustSignInResult");
+        if(seed==null)
+            seed=CipherFieldTool.getSeed();
+        process(o,c,fields,DATA_DECRYPT,seed);
     }
-    public static void Process(QueryMessageVo o,Integer type) throws  Exception{
-        Map<String,Set<String>> tableMap=getMap();
-        Set<String> fields=null;
-        Class c=null;
-        c= Class.forName("com.rong.ssm.vo.QueryMessageVo");
-        fields=tableMap.get("message");
-       process(o,c,fields,type);
-    }
-
-
-    private static void process(Object o, Class c, Set<String> fields, Integer type)throws  Exception{
-        /**
-         * 如果o的字段type!=customer 那么进行cpabe校验
-         */
+    private static void process(Object o, Class c, Set<String> fields, Integer type,byte[] seed)throws  Exception{
         for(String field:fields){
             Field f=c.getDeclaredField(field);
             f.setAccessible(true);
             String str=null;
             if(type==DATA_ENCRYPT&& (f.get(o)!=null))
-                str=AESCoder.Ancrypt(seed.getBytes(),(String) f.get(o));
+                str=AESCoder.Ancrypt(seed,(String) f.get(o));
             else
             if(type==DATA_DECRYPT&&((f.get(o)!=null))) {
-                str = AESCoder.Decrypt(seed.getBytes(), (String) f.get(o));
+                str = AESCoder.Decrypt(seed, (String) f.get(o));
             }
             f.set(o,str);
             System.out.println(str);
         }
     }
 
-    public static Map<String,Set<String>> getMap() throws Exception {
-        if(map==null)
-            map=CipherFieldTool.getCipherField();
-        return map;
-    }
 }

@@ -26,7 +26,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value="/api/manager")
 @Controller
 public class ManagerController {
-
     @Autowired
     private ManagerService managerService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());

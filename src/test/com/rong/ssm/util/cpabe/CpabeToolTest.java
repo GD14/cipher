@@ -1,5 +1,6 @@
 package com.rong.ssm.util.cpabe;
 
+import com.rong.ssm.util.CipherFieldTool;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -26,57 +27,34 @@ public class CpabeToolTest {
     @Test
     public  void TestKeygen() throws Exception {
 
+
+        System.out.println(new String(CipherFieldTool.getSeed()));
         /**
          * 测试 keygen
          */
         CpabeTool cpabeTool =new CpabeTool();
-        Resource resource = (Resource) new ClassPathResource("cpabe/pub_key");
-        String pubfile=null;
-        if (resource.isReadable()) {
-            //每次都会打开一个新的流
-            pubfile=resource.getURL().getPath();
-        }
-        resource = (Resource) new ClassPathResource("cpabe/master_key");
-        String mskfile=null;
-        if (resource.isReadable()) {
-            //每次都会打开一个新的流
-             mskfile=resource.getURL().getPath();
-        }
-        byte[] prv_Bytes=cpabeTool.keygen(pubfile,mskfile,student_attr);
+        byte[] prv_Bytes=cpabeTool.keygen(CipherFieldTool.getPub(),CipherFieldTool.getMsk(),student_attr);
 
         /**
          * 测试加密
          */
-        resource = (Resource) new ClassPathResource("cpabe/input");
+        Resource resource = (Resource) new ClassPathResource("cpabe/input");
         String inputfile=null;
         if (resource.isReadable()) {
-            //每次都会打开一个新的流
             inputfile=resource.getURL().getPath();
         }
-
-        resource = (Resource) new ClassPathResource("cpabe/encfile");
-        String encfile=null;
-        if (resource.isReadable()) {
-            //每次都会打开一个新的流
-            encfile=resource.getURL().getPath();
-        }
-        cpabeTool.enc(pubfile,student_policy,inputfile,encfile);
+        cpabeTool.enc(CipherFieldTool.getPub(),student_policy,inputfile,CipherFieldTool.getEncFile());
 
         /**
          * 测试解密
          */
 
-        byte[] ans=cpabeTool.dec(pubfile,prv_Bytes,encfile);
+        byte[] ans=cpabeTool.dec(CipherFieldTool.getPub(),prv_Bytes,CipherFieldTool.getEncFile());
         System.out.println(new String(ans));
-
-
 
         /**
          *  aes 获取密钥
          */
-
-
-
 
     }
 

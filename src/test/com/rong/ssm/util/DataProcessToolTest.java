@@ -14,11 +14,11 @@ public class DataProcessToolTest {
         SignInForm signInForm = new SignInForm();
         DataProcessTool dataEncTool= new DataProcessTool();
         signInForm.setPhone("15527185212");
-        dataEncTool.Process(signInForm);
+        //dataEncTool.Process(signInForm);
 
         QueryMessageVo queryMessageVo=new QueryMessageVo();
         queryMessageVo.setSendNbr("15527185212");
-        dataEncTool.Process(queryMessageVo,DataProcessTool.DATA_ENCRYPT);
+        //dataEncTool.Process(queryMessageVo,DataProcessTool.DATA_ENCRYPT);
 
 
     }

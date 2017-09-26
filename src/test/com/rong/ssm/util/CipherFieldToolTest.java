@@ -15,7 +15,7 @@ public class CipherFieldToolTest {
 
     @Test
     public  void test() throws Exception{
-     Map<String,Set<String>> map=CipherFieldTool.getCipherField();
+     //Map<String,Set<String>> map=CipherFieldTool.getCipherField();
      return;
     }
 

@@ -21,12 +21,12 @@ public class MessageServiceImpl implements MessageService{
     MessageMapper messageMapper;
     @Override
     public List<Message> listMessageBySendNbr(QueryMessageVo queryMessageVo) throws Exception {
-        DataProcessTool.Process(queryMessageVo);
+        DataProcessTool.Encrypt(queryMessageVo);
         List<Message> messageList = messageMapper.selectBySendNbr(queryMessageVo);
         List<Message> receiveList = messageMapper.selectByReceiveNbr(queryMessageVo);
         messageList.addAll(receiveList);
         for(Message message :messageList){
-            DataProcessTool.Process(message);
+            DataProcessTool.Decrypt(message,null);
         }
         return messageList;
 
