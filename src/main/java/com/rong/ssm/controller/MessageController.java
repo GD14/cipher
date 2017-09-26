@@ -28,7 +28,7 @@ public class MessageController {
     private MessageService messageService;
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public CommonResult<List<Message>> List(@Validated QueryMessageVo queryMessageVo, BindingResult bindingResult, HttpServletRequest request){
+    public CommonResult<List<Message>> List(@Validated QueryMessageVo queryMessageVo, BindingResult bindingResult, HttpServletRequest request) throws Exception {
         List<Message> messageList=messageService.listMessageBySendNbr(queryMessageVo);
         return new CommonResult<>("0",messageList);
     }

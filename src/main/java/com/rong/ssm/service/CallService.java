@@ -9,5 +9,5 @@ import java.util.List;
  * Created by GD14 on 2017/9/5.
  */
 public interface CallService {
-    public List<Call> listCallByPhone(QueryCallVo queryCallVo);
+    public List<Call> listCallByPhone(QueryCallVo queryCallVo) throws Exception;
 }

@@ -1,11 +1,15 @@
 package com.rong.ssm.util;
 import com.rong.ssm.dto.CustSignInResult;
+import com.rong.ssm.pojo.Call;
+import com.rong.ssm.pojo.Message;
 import com.rong.ssm.util.cpabe.AESCoder;
+import com.rong.ssm.vo.QueryCallVo;
 import com.rong.ssm.vo.QueryMessageVo;
 import com.rong.ssm.vo.SignInForm;
 import org.springframework.util.xml.SimpleNamespaceContext;
 
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /**
@@ -17,6 +21,28 @@ public class DataProcessTool {
     public static Integer DATA_ENCRYPT=0;
     public static Integer DATA_DECRYPT=1;
 
+    public static void Process(QueryMessageVo o) throws  Exception{
+        Set<String> fields=getMap().get("message");
+        Class c=Class.forName("com.rong.ssm.vo.QueryMessageVo");
+        process(o,c,fields,DATA_ENCRYPT);
+    }
+    public static void Process(Message message)throws Exception{
+        Set<String> fields=getMap().get("message");
+        Class c=Class.forName("com.rong.ssm.pojo.Message");
+        process(message,c,fields,DATA_DECRYPT);
+    }
+
+    public static void Process(QueryCallVo o) throws  Exception{
+        Set<String> fields=getMap().get("call");
+        Class c=Class.forName("com.rong.ssm.vo.QueryCallVo");
+        process(o,c,fields,DATA_ENCRYPT);
+    }
+
+    public static void Process(Call calls)throws Exception{
+        Set<String> fields=getMap().get("call");
+        Class c=Class.forName("com.rong.ssm.pojo.Call");
+        process(calls,c,fields,DATA_DECRYPT);
+    }
     public static void Process(SignInForm o) throws  Exception{
         o.setCust_nbr(o.getPhone());
         Map<String,Set<String>> tableMap=getMap();
@@ -54,10 +80,10 @@ public class DataProcessTool {
             Field f=c.getDeclaredField(field);
             f.setAccessible(true);
             String str=null;
-            if(type==DATA_ENCRYPT)
+            if(type==DATA_ENCRYPT&& (f.get(o)!=null))
                 str=AESCoder.Ancrypt(seed.getBytes(),(String) f.get(o));
             else
-            if(type==DATA_DECRYPT) {
+            if(type==DATA_DECRYPT&&((f.get(o)!=null))) {
                 str = AESCoder.Decrypt(seed.getBytes(), (String) f.get(o));
             }
             f.set(o,str);

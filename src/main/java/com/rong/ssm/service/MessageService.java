@@ -11,5 +11,5 @@ import java.util.List;
  * Created by GD14 on 2017/9/5.
  */
 public interface MessageService {
-    public List<Message> listMessageBySendNbr(QueryMessageVo queryMessageVo);
+    public List<Message> listMessageBySendNbr(QueryMessageVo queryMessageVo) throws Exception;
 }

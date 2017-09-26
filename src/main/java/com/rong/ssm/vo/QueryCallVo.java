@@ -10,7 +10,6 @@ public class QueryCallVo {
     private String calledNbr;
     private Date startTime;
     private Date endTime;
-
     public String getCalledNbr() {
         return calledNbr;
     }

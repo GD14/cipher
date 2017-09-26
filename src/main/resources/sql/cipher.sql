@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : test
-Source Server Version : 50713
+Source Server         : mysql
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : cipher
 
 Target Server Type    : MYSQL
-Target Server Version : 50713
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-09-19 18:39:28
+Date: 2017-09-26 14:36:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,8 +40,8 @@ CREATE TABLE `call` (
 -- ----------------------------
 -- Records of call
 -- ----------------------------
-INSERT INTO `call` VALUES ('60', '1', '2', '2017-08-19 18:12:24', '2017-08-18 18:22:31', '武汉大学', '61', '15527185212', '17607185613', null, '62', '63', '武汉大学', '武汉大学');
-INSERT INTO `call` VALUES ('67', '2', '1', '2017-09-14 18:14:12', '2017-09-14 18:24:17', '武汉大学', '68', '17607185613', '15527185212', null, '69', '70', '武汉大学', '武汉大学');
+INSERT INTO `call` VALUES ('60', '1', '2', '2017-08-19 18:12:24', '2017-08-18 18:22:31', '武汉大学', '61', 'A+NpL27cA226lNH+IHDq8w==', '8qxkzPuH+COUk1FI3Ov13Q==', null, '62', '63', '武汉大学', '武汉大学');
+INSERT INTO `call` VALUES ('67', '2', '1', '2017-09-14 18:14:12', '2017-09-14 18:24:17', '武汉大学', '68', '8qxkzPuH+COUk1FI3Ov13Q==', 'A+NpL27cA226lNH+IHDq8w==', null, '69', '70', '武汉大学', '武汉大学');
 
 -- ----------------------------
 -- Table structure for cipher_fields
@@ -80,8 +80,8 @@ CREATE TABLE `customer` (
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('80', '1', '123123', '陈瀚榕', '男', '15527185212', '31', '2014-09-19 18:38:05', '2014-09-19 18:38:13', '2017-09-19 18:38:21');
-INSERT INTO `customer` VALUES ('81', '2', '123123', '卢淘', '女', '17607185613', '31', '2013-09-19 18:39:03', '2013-09-19 18:39:08', '2017-09-19 18:39:15');
+INSERT INTO `customer` VALUES ('80', '1', '123123', '陈瀚榕', '男', 'A+NpL27cA226lNH+IHDq8w==', '31', '2014-09-19 18:38:05', '2014-09-19 18:38:13', '2017-09-19 18:38:21');
+INSERT INTO `customer` VALUES ('81', '2', '123123', '卢淘', '女', '8qxkzPuH+COUk1FI3Ov13Q==', '31', '2013-09-19 18:39:03', '2013-09-19 18:39:08', '2017-09-19 18:39:15');
 
 -- ----------------------------
 -- Table structure for customer_info
@@ -120,7 +120,7 @@ CREATE TABLE `manager` (
   `status` tinyint(2) DEFAULT NULL,
   `active_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of manager
@@ -140,7 +140,7 @@ CREATE TABLE `manager_info` (
   `birthday` date DEFAULT NULL,
   `department` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of manager_info
@@ -167,8 +167,8 @@ CREATE TABLE `message` (
 -- ----------------------------
 -- Records of message
 -- ----------------------------
-INSERT INTO `message` VALUES ('20', '1', '2', '2017-09-18 17:58:51', '2017-09-18 17:58:54', '武汉大学', '你好！这里是武汉大学，欢迎你就读', '15527185212', '17607185613');
-INSERT INTO `message` VALUES ('21', '2', '1', '2017-09-19 18:00:32', '2017-09-19 18:00:35', '武汉大学', '谢谢O(∩_∩)O谢谢', '17607185613', '15527185212');
+INSERT INTO `message` VALUES ('20', '1', '2', '2017-09-18 17:58:51', '2017-09-18 17:58:54', '武汉大学', '你好！这里是武汉大学，欢迎你就读', 'A+NpL27cA226lNH+IHDq8w==', '8qxkzPuH+COUk1FI3Ov13Q==');
+INSERT INTO `message` VALUES ('21', '2', '1', '2017-09-19 18:00:32', '2017-09-19 18:00:35', '武汉大学', '谢谢O(∩_∩)O谢谢', '8qxkzPuH+COUk1FI3Ov13Q==', 'A+NpL27cA226lNH+IHDq8w==');
 
 -- ----------------------------
 -- Table structure for product
@@ -222,7 +222,7 @@ CREATE TABLE `type_permission` (
   `max_msgNumber` int(11) DEFAULT NULL,
   `max_callNumber` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of type_permission
