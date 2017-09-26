@@ -22,7 +22,7 @@
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">${customer.cust_name}</div>
+        <div class="user-name text-center">${customer.custName}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -66,14 +66,17 @@
 </body>
 <script>
     $(".btnCallsSearch").click(function(){
-        var callingPhone=${customer.cust_nbr};
-        var start_time=$(".callsPreTime").val();
-        var end_time=$(".callsLasTime").val();
+        var callingPhone=${customer.custNbr};
+        var startTime=$(".callsPreTime").val();
+        var endTime=$(".callsLasTime").val();
         var url="<%=path%>/api/call/list";
+        var userType="customer";
         var data={
             callingNbr:callingPhone,
-            startTime:start_time,
-            endTime:end_time
+            startTime:startTime,
+            endTime:endTime,
+            type:userType,
+            id:null,
         };
         $.ajax({
             type: 'POST',

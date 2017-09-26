@@ -79,10 +79,14 @@
         var start_time=$(".MesPreTime").val();
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
+        var userType="manager";
+        var managerId=${manager.managerId};
         var data={
             sendNbr:callingPhone,
             startTime:start_time,
-            endTime:end_time
+            endTime:end_time,
+            type:userType,
+            id:managerId
         };
         $.ajax({
             type: 'POST',

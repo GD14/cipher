@@ -22,7 +22,7 @@
 <body>
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">${customer.cust_name}</div>
+        <div class="user-name text-center">${customer.custName}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -50,11 +50,11 @@
 
 
     var cusInfoD={
-        姓名:"${customer.cust_name}",
-        性别:"${customer.cust_sex}",
-        手机号码:"${customer.cust_nbr}",
+        姓名:"${customer.custName}",
+        性别:"${customer.custSex}",
+        手机号码:"${customer.custNbr}",
         最近更新时间:"${customer.updateTime}",
-        注册时间:"${customer.login_time}"
+        注册时间:"${customer.loginTime}"
      };
     new Vue({
         el: '#cusInfo',

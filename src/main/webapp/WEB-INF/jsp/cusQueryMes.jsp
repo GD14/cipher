@@ -24,7 +24,7 @@
 
 <div class="row">
     <div class="main-nav col-md-3">
-        <div class="user-name text-center">${customer.cust_name}</div>
+        <div class="user-name text-center">${customer.custName}</div>
         <div class="nav-ul text-center">
             <ul class="list-unstyled">
                 <li>主页</li>
@@ -68,14 +68,17 @@
 </body>
 <script>
     $(".btnMesSearch").click(function(){
-        var sendNbr=${customer.cust_nbr};
+        var sendNbr=${customer.custNbr};
         var start_time=$(".MesPreTime").val();
         var end_time=$(".MesLasTime").val();
         var url="<%=path%>/api/message/list";
+        var userType="customer";
         var data={
             sendNbr:sendNbr,
             startTime:start_time,
-            endTime:end_time
+            endTime:end_time,
+            type:userType,
+            id:null
         };
         $.ajax({
             type: 'POST',

@@ -77,12 +77,14 @@
         var start_time=$(".callsPreTime").val();
         var end_time=$(".callsLasTime").val();
         var url="<%=path%>/api/call/list";
+        var userType="manager";
+        var managerId=${manager.managerId};
         var data={
             callingNbr:callingPhone,
-            type:"user",
-            id: null,
+            type:userType,
+            id: managerId,
             startTime:start_time,
-            endTime:end_time
+            endTime:end_time,
         };
         $.ajax({
             type: 'POST',
