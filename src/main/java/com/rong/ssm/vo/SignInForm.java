@@ -6,15 +6,8 @@ package com.rong.ssm.vo;
 public class SignInForm {
     private String phone;
     private String passwd;
-    private String cust_nbr;
 
-    public String getCust_nbr() {
-        return cust_nbr;
-    }
-
-    public void setCust_nbr(String cust_nbr) {
-        this.cust_nbr = cust_nbr;
-    }
+    private String type;
 
     public String getPasswd() {
         return passwd;
@@ -30,5 +23,13 @@ public class SignInForm {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

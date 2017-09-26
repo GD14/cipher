@@ -6,6 +6,7 @@ package com.rong.ssm.vo;
 public class UserSignInForm {
     private String userName;
     private String userPass;
+    private String type;
 
     public UserSignInForm() {
     }
@@ -38,5 +39,14 @@ public class UserSignInForm {
     public void setUserPass(String userPass) {
         this.userPass = userPass;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 
 }

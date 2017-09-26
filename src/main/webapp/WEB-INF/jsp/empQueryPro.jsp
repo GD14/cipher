@@ -54,8 +54,12 @@
             return;
         }
         var url="<%=path%>/api/message/list";
+        var userType="manager";
+        var managerId=${manager.managerId};
         var data={
             phoneNumber:phoneNumber,
+            type:userType,
+            id:managerId
         };
         $.ajax({
             type: 'POST',

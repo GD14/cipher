@@ -13,22 +13,6 @@ public class QueryCallVo {
     private Integer id;
     private String type;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getCalledNbr() {
         return calledNbr;
     }
@@ -59,5 +43,21 @@ public class QueryCallVo {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

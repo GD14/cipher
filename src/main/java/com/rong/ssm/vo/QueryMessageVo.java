@@ -10,6 +10,8 @@ public class QueryMessageVo {
     private String receiveNbr;
     private Date startTime;
     private Date endTime;
+    private Integer id;
+    private String type;
 
     public String getReceiveNbr() {
         return receiveNbr;
@@ -41,5 +43,21 @@ public class QueryMessageVo {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

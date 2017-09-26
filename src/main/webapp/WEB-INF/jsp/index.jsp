@@ -51,7 +51,8 @@
         }
         var data={
             phone: userName,
-            passwd: userPwd
+            passwd: userPwd,
+            type:userType
         };
         $.ajax({
             type: 'POST',

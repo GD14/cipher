@@ -8,88 +8,85 @@ import java.util.Date;
  * Created by GD14 on 2017/9/5.
  */
 public class CustSignInResult {
-    private Integer cust_id;
-    private String cust_name;
-    private Date reg_time;
-    private String cust_nbr;
-    private Date login_time;
-    private String cust_sex;
+    private Integer custId;
+    private String custName;
+    private Date regTime;
+    private String custNbr;
+    private Date loginTime;
+    private String custSex;
     private Date updateTime;
 
     public CustSignInResult(Customer customer){
 
-        this.cust_id=customer.getCustId();
-        this.cust_name=customer.getCustName();
-        this.cust_nbr=customer.getCustNbr();
-        this.reg_time=customer.getRegisterTime();
-        this.login_time=customer.getLoginTime();
-        this.cust_sex=customer.getCustSex();
+        this.custId=customer.getCustId();
+        this.custName=customer.getCustName();
+        this.custNbr=customer.getCustNbr();
+        this.regTime=customer.getRegisterTime();
+        this.loginTime=customer.getLoginTime();
+        this.custSex=customer.getCustSex();
         this.updateTime=customer.getUpdateTime();
     }
     @Override
     public String toString() {
         return "CustSignInResult{" +
-                "cust_id=" + cust_id +
-                ", cust_name='" + cust_name + '\'' +
-                ", reg_time=" + reg_time +
-                ", cust_nbr='" + cust_nbr + '\'' +
-                ", login_time=" + login_time +
+                "cust_id=" + custId +
+                ", cust_name='" + custName + '\'' +
+                ", reg_time=" + regTime +
+                ", cust_nbr='" + custNbr + '\'' +
+                ", login_time=" + loginTime +
                 '}';
     }
 
     public boolean isSuccess(){
-        return (cust_id!=null);
-    }
-    public int getCust_id() {
-        return cust_id;
+        return (custId!=null);
     }
 
-    public void setCust_id(int cust_id) {
-        this.cust_id = cust_id;
+    public Integer getCustId() {
+        return custId;
     }
 
-    public String getCust_name() {
-        return cust_name;
+    public void setCustId(Integer custId) {
+        this.custId = custId;
     }
 
-    public void setCust_name(String cust_name) {
-        this.cust_name = cust_name;
+    public String getCustName() {
+        return custName;
     }
 
-    public Date getReg_time() {
-        return reg_time;
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
-    public void setReg_time(Date reg_time) {
-        this.reg_time = reg_time;
+    public Date getRegTime() {
+        return regTime;
     }
 
-    public String getCust_nbr() {
-        return cust_nbr;
+    public void setRegTime(Date regTime) {
+        this.regTime = regTime;
     }
 
-    public void setCust_nbr(String cust_nbr) {
-        this.cust_nbr = cust_nbr;
+    public String getCustNbr() {
+        return custNbr;
     }
 
-    public Date getLogin_time() {
-        return login_time;
+    public void setCustNbr(String custNbr) {
+        this.custNbr = custNbr;
     }
 
-    public void setLogin_time(Date login_time) {
-        this.login_time = login_time;
+    public Date getLoginTime() {
+        return loginTime;
     }
 
-    public void setCust_id(Integer cust_id) {
-        this.cust_id = cust_id;
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
     }
 
-    public String getCust_sex() {
-        return cust_sex;
+    public String getCustSex() {
+        return custSex;
     }
 
-    public void setCust_sex(String cust_sex) {
-        this.cust_sex = cust_sex;
+    public void setCustSex(String custSex) {
+        this.custSex = custSex;
     }
 
     public Date getUpdateTime() {
